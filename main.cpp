@@ -9,6 +9,7 @@ template <Number T, size_t Rows, size_t Columns> class Matrix {
 
   public:
     std::array<T, Rows * Columns> matrixArray;
+    Matrix() : matrixArray{} {}
     template <typename... Args>
     Matrix(Args... args) {
         static_assert(sizeof...(Args) == Rows * Columns, "Number of arguments does not match Matrix dimensions!");
@@ -45,14 +46,10 @@ template <Number T, size_t Rows, size_t Columns> class Matrix {
         return result;
     }
 };
-template <typename... Args>
-void func(Args... args){
-    std::array<float, 4> arr = {static_cast<float>(args)...};
-}
-
 
 int main() {
-    func(1,2,2.5,3);
-    Matrix<int,3,4> m1(1,2,3,4,5,6,7,8,9,10,12);
+    Matrix<int,3,4> m1(1,2,3,4,5,6,7,8,9,10,11,12);
+    Matrix<int,4,1> m2(2,4,8,16);
+    auto result = m1*m2;
 
 }
