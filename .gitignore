@@ -1,1 +1,5 @@
 build
+shape.cpp
+shape
+.vscode
+wasm
